@@ -184,13 +184,7 @@ class ProductController extends Controller
             $stock='out of stock';
 
         }
-
         $imgPath=Storage::disk('uploads')->put("products",$request->image);
-
-
-
-
-
         Product::create([
             'name'=>$request->name,
             'img'=>$imgPath,
@@ -203,13 +197,63 @@ class ProductController extends Controller
             'stock'=>$stock,
         ]);
         return redirect(url("/admin/allproducts"));
-
-
     }
+    public function editProductForm($id)
+    {
+        $product=Product::findOrFail($id);
+        $cats=Cat::all();
+        $brands=Brand::all();
+        return view('DashBoard.Products.editProduct',[
+            'product'=>$product,
+            'brands'=>$brands,
+            'cats'=>$cats,
+        ]);
+    }
+    public function editProduct(Request $request,$id)
+    {
+        $product=Product::findOrFail($id);
+        $request->validate([
+            'name'=>'required|string|max:255',
+            'model'=>'nullable|string|max:255',
+            'discreption'=>'nullable|string|max:255',
+            'price'=>'required|numeric|max:999999.99',
+            'sale_price'=>'nullable|numeric|max:999999.99',
+            'brand'=>'required|numeric',
+            'category'=>'required|numeric',
+            'image'=>'nullable|image|max:20480|mimes:png,jpg,jpeg'
+        ]);
+        if ($request->stock == 'on') {
+            $stock='in Stock';
+        }else
+        {
+            $stock='out of stock';
+
+        }
+        if ($request->image == null) {
+            $imgPath=$product->img;
+        }
+        else{
+            Storage::disk('uploads')->delete($product->img);
+            $imgPath=Storage::disk('uploads')->put("products", $request->image);
+        }
+        $product->update([
+            'name'=>$request->name,
+            'img'=>$imgPath,
+            'price'=>$request->price,
+            'sale_price'=>$request->sale_price,
+            'discreption'=>$request->discreption,
+            'brand_id'=>$request->brand,
+            'cat_id'=>$request->category,
+            'model'=>$request->model,
+            'stock'=>$stock,
+        ]);
+        return redirect(url("/admin/allproducts"));
+    }
+
     public function deleteProduct($id)
     {
         $product=Product::findOrFail($id);
-        if ($product->carts() != null && $product->orders() != null) {
+        if ($product->carts()->first() != null && $product->orders()->first() != null) {
             $cats=Cat::all();
             $brands=Brand::all();
             $products = Product::orderBy('id', 'desc')->paginate(12);

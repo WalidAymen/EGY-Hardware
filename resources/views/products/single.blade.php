@@ -25,12 +25,16 @@
                         @else
                             <span>{{ number_format($product->price) }} EGP</span>
                         @endif
-                        <a href="{{ url("/addtocart/$product->id") }}">
-                            <button type="button" class="btn btn-fefault cart">
-                                <i class="fa fa-shopping-cart"></i>
-                                Add to cart
-                            </button>
-                        </a>
+                        @if ($product->stock == 'in Stock')
+
+                            <a href="{{ url("/addtocart/$product->id") }}">
+                                <button type="button" class="btn btn-fefault cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to cart
+                                </button>
+                            </a>
+                        @endif
+
                     </span>
                     <p><b>Availability : </b>{{ $product->stock }}</p>
                     <p><b>Brand:</b> {{ $product->brand->name }}</p>
@@ -79,10 +83,12 @@
                                                     </div>
                                                     <p>{{ $brandProducts[$i]->name }}</p>
                                                 </a>
-                                                <a href="{{ url('/addtocart/' . $brandProducts[$i]->id) }}">
-                                                    <button type="button" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </a>
+                                                @if ($brandProducts[$i]->stock == 'in Stock')
+                                                    <a href="{{ url('/addtocart/' . $brandProducts[$i]->id) }}">
+                                                        <button type="button" class="btn btn-default add-to-cart"><i
+                                                                class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -112,10 +118,12 @@
                                                     </div>
                                                     <p>{{ $brandProducts[$i]->name }}</p>
                                                 </a>
-                                                <a href="{{ url('/addtocart/' . $brandProducts[$i]->id) }}">
-                                                    <button type="button" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </a>
+                                                @if ($brandProducts[$i]->stock == 'in Stock')
+                                                    <a href="{{ url('/addtocart/' . $brandProducts[$i]->id) }}">
+                                                        <button type="button" class="btn btn-default add-to-cart"><i
+                                                                class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -148,10 +156,12 @@
                                                     </div>
                                                     <p>{{ $brandProducts[$i]->name }}</p>
                                                 </a>
-                                                <a href="{{ url('/addtocart/' . $brandProducts[$i]->id) }}">
-                                                    <button type="button" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </a>
+                                                @if ($brandProducts[$i]->stock == 'in Stock')
+                                                    <a href="{{ url('/addtocart/' . $brandProducts[$i]->id) }}">
+                                                        <button type="button" class="btn btn-default add-to-cart"><i
+                                                                class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -200,10 +210,12 @@
                                                     </div>
                                                     <p>{{ $catProducts[$i]->name }}</p>
                                                 </a>
-                                                <a href="{{ url('/addtocart/' . $catProducts[$i]->id) }}">
-                                                    <button type="button" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </a>
+                                                @if ($catProducts[$i]->stock == 'in Stock')
+                                                    <a href="{{ url('/addtocart/' . $catProducts[$i]->id) }}">
+                                                        <button type="button" class="btn btn-default add-to-cart"><i
+                                                                class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -233,10 +245,12 @@
                                                     </div>
                                                     <p>{{ $catProducts[$i]->name }}</p>
                                                 </a>
-                                                <a href="{{ url('/addtocart/' . $catProducts[$i]->id) }}">
-                                                    <button type="button" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </a>
+                                                @if ($catProducts[$i]->stock == 'in Stock')
+                                                    <a href="{{ url('/addtocart/' . $catProducts[$i]->id) }}">
+                                                        <button type="button" class="btn btn-default add-to-cart"><i
+                                                                class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -269,10 +283,12 @@
                                                     </div>
                                                     <p>{{ $catProducts[$i]->name }}</p>
                                                 </a>
-                                                <a href="{{ url('/addtocart/' . $catProducts[$i]->id) }}">
-                                                    <button type="button" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </a>
+                                                @if ($catProducts[$i]->stock == 'in Stock')
+                                                    <a href="{{ url('/addtocart/' . $catProducts[$i]->id) }}">
+                                                        <button type="button" class="btn btn-default add-to-cart"><i
+                                                                class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

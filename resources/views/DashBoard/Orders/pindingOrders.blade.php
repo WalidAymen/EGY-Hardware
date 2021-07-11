@@ -108,6 +108,9 @@
                                     <b>Total:</b> {{ number_format($order->total_price) }} EGP
                                 </div>
                             </div>
+                            <a href="{{ url("/admin/showorder/$order->id") }}">
+                                <button class="btn btn-warning mt-3">View order details</button>
+                            </a>
                             <button id="toggle" class="btn btn-primary my-3">Change order status</button>
                         </div>
                     </div>

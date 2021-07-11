@@ -64,7 +64,9 @@ Route::post('/admin/editorder',[OrderController::class,'edit'])->middleware(['au
 Route::get('/admin/pindingorders',[OrderController::class,'pindingOrders'])->middleware(['auth','isBK']);
 Route::get('/admin/allorders',[OrderController::class,'allOrders'])->middleware(['auth','isBK']);
 Route::get('/admin/deleteorder/{id}',[OrderController::class,'delete'])->middleware(['auth','isBK']);
+Route::get('/admin/dropfromorder/{oid}/{pid}',[OrderController::class,'drop'])->middleware(['auth','isBK']);
 Route::post('/admin/updateorder/{id}',[OrderController::class,'update'])->middleware(['auth','isBK']);
+Route::get('/admin/showorder/{id}',[OrderController::class,'adminShow'])->middleware(['auth','isBK']);
 Route::get('/admin/returnrequest',[OrderController::class,'returnOrders'])->middleware(['auth','isBK']);
 
 Route::get('/admin/allmessages',[MessageController::class,'all'])->middleware(['auth','isBK']);

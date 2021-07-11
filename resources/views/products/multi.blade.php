@@ -81,7 +81,9 @@
                                 </h2>
                                 <h5 class="overflow-hidden" style="height: 5rem">{{$product->name}}</h5>
                             </a>
+                            @if ($product->stock == 'in Stock')
                             <a href="{{url("/addtocart/$product->id")}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            @endif
                         </div>
                     @if ($product->sale_price!=null)
                     <img src="{{ asset("images/home/sale.png")}}" class="new" alt="" />

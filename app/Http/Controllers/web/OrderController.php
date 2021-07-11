@@ -5,6 +5,7 @@ namespace App\Http\Controllers\web;
 use App\Http\Controllers\Controller;
 use App\Models\Governorates;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -155,6 +156,35 @@ class OrderController extends Controller
         ]);
         return redirect()->back();
     }
+    public function adminShow($id)
+    {
+        $order=Order::findOrFail($id);
+        $products=$order->products()->get();
+        return view('DashBoard.Orders.showOrder',[
+            'order'=>$order,
+            'products'=>$products,
+        ]);
+    }
 
-
+    public function drop($orderId,$productId)
+    {
+        $order = Order::findOrFail($orderId);
+        $totalPrice = $order->total_price;
+        $productPrice = Product::findOrFail($productId)->price;
+        $totalPrice -= $productPrice;
+        $order->update([
+            'total_price' => $totalPrice
+        ]);
+        $productsCount = $order->products()->where('product_id', $productId)->first()->pivot->count;
+        if ($productsCount == 1) {
+            $order->products()->detach($productId);
+            return redirect()->back();
+        } else {
+            $productsCount -= 1;
+            $order->products()->updateExistingPivot($productId, [
+                'count' => $productsCount
+            ]);
+            return redirect()->back();
+        }
+    }
 }
