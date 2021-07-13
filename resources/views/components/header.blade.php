@@ -43,10 +43,13 @@
                             <li><a href="{{url('/admin/pindingorders')}}"><i class="fas fa-tools"></i> Dash Board
                                 </a></li>
                             @endif
+                            @if ($cart != null)
                             <li><a href="{{url('/cart/'.$cart->id)}}"><i class="fa fa-shopping-cart"></i> Cart
                                 @if (count($cart->products)>0)
                                 <span class="badge badge-light">{{count($cart->products)}}</span>
                                 @endif </a></li>
+                            @endif
+
                             <li class="dropdown"><a href="{{url('/profile')}}">{{$cart->user->name}}<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                       <a class="text-center" href="{{url('/profile')}}"><h6>profile</h6></a>
