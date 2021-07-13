@@ -15,9 +15,9 @@
                                 <h2 style="height: 5rem" class="position-relative d-flex align-items-center justify-content-center">
                                 @if ($product->sale_price!=null)
                                 <p class="text-danger" style="height: 2rem;font-size: 2rem"><del>{{$product->price}} EGP</del></p>
-                                <h2 style="height: 5rem">{{number_format($product->pivot->count * $product->sale_price)}} EGP</h2>
+                                <h2 style="height: 5rem">{{number_format($product->pivot->count * $product->sale_price ,2)}} EGP</h2>
                                 @else
-                                <h2 style="height: 5rem">{{number_format($product->pivot->count * $product->price)}} EGP</h2>
+                                <h2 style="height: 5rem">{{number_format($product->pivot->count * $product->price ,2)}} EGP</h2>
                                 @endif
                                 </h2>
                                 <h5 class="overflow-hidden" style="height: 5rem">{{$product->name}}</h5>
@@ -36,9 +36,9 @@
                         <li>City <span>{{ $user->city }} </span></li>
                         <li>Address <span>{{$user->address}}</span></li>
                         <li>Phone <span>{{$user->phone}}</span></li>
-                        <li>Order price <span>{{number_format($orderPrice)}} EGP</span></li>
-                        <li>Shipping <span>{{number_format($shipping)}} EGP</span></li>
-                        <li>Total price <span>{{number_format($totalPrice)}} EGP</span></li>
+                        <li>Order price <span>{{number_format($orderPrice ,2)}} EGP</span></li>
+                        <li>Shipping <span>{{number_format($shipping ,2)}} EGP</span></li>
+                        <li>Total price <span>{{number_format($totalPrice ,2)}} EGP</span></li>
                     </ul>
                     <div class="text-center">
                     <a class="btn btn-success" href="{{url('/submitorder')}}">Confirm order</a>

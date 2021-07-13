@@ -40,6 +40,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
@@ -57,6 +58,11 @@ class Kernel extends HttpKernel
         'isSuperAdmin' => \App\Http\Middleware\IsSuperAdmin::class,
         'isBK' => \App\Http\Middleware\IsBookkeeper::class,
         'isAdmin' => \App\Http\Middleware\IsAdmin::class,
+
+        'api_isSuperAdmin' => \App\Http\Middleware\apiIsSuperAdmin::class,
+        'api_isBK' => \App\Http\Middleware\apiIsBookkeeper::class,
+        'api_isAdmin' => \App\Http\Middleware\apiIsAdmin::class,
+
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,

@@ -41,7 +41,7 @@
                                             <p>{{ $product->model }}</p>
                                         </td>
                                         <td class="cart_price">
-                                            <p>{{ number_format($product->pivot->count * $product->price) }} EGP</p>
+                                            <p>{{ number_format($product->pivot->count * $product->price , 2) }} EGP</p>
                                         </td>
                                         <td class="cart_quantity">
                                             <span style="padding: 1rem"
@@ -69,9 +69,9 @@
                     <div class="col-sm-12">
                         <div class="total_area">
                             <ul>
-                                <li>Cart Sub Total <span>{{ number_format($totalPrice) }} EGP</span></li>
+                                <li>Cart Sub Total <span>{{ number_format($totalPrice , 2) }} EGP</span></li>
                                 <li>Shipping Cost <span>According to the address</span></li>
-                                <li>Total <span>{{ number_format($totalPrice) }} EGP</span></li>
+                                <li>Total <span>{{ number_format($totalPrice ,2) }} EGP</span></li>
                             </ul>
                             <a class="btn btn-default check_out" href="{{url('/checkout')}}">Check Out</a>
                         </div>

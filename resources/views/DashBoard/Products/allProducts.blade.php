@@ -336,9 +336,9 @@
                                             <p class="text-danger" style="height: 2rem;font-size: 2rem">
                                                 <del>{{ $product->price }} EGP</del>
                                             </p>
-                                            <h2 style="height: 2rem">{{ number_format($product->sale_price) }} EGP</h2>
+                                            <h2 style="height: 2rem">{{ number_format($product->sale_price ,2) }} EGP</h2>
                                         @else
-                                            <h2 style="height: 2rem">{{ number_format($product->price) }} EGP</h2>
+                                            <h2 style="height: 2rem">{{ number_format($product->price ,2) }} EGP</h2>
                                         @endif
                                     </h2>
                                     <h5 class="overflow-hidden" style="height: 2rem">{{ $product->name }}</h5>

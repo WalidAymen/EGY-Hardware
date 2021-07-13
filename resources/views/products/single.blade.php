@@ -19,11 +19,11 @@
                     <p><b>Model:</b> {{ $product->model }}</p>
                     <span>
                         @if ($product->sale_price != null)
-                            <p class="text-danger" style="font-size: 2rem"><del>{{ number_format($product->price) }}
+                            <p class="text-danger" style="font-size: 2rem"><del>{{ number_format($product->price ,2) }}
                                     EGP</del></p>
-                            <span>{{ number_format($product->sale_price) }} EGP</span>
+                            <span>{{ number_format($product->sale_price ,2) }} EGP</span>
                         @else
-                            <span>{{ number_format($product->price) }} EGP</span>
+                            <span>{{ number_format($product->price ,2) }} EGP</span>
                         @endif
                         @if ($product->stock == 'in Stock')
 
@@ -71,14 +71,14 @@
                                                     <div style="height: 8rem;max-height: 8rem">
                                                         @if ($brandProducts[$i]->sale_price != null)
                                                             <h5 style="height: 3rem;max-height: 2rem" class="text-danger">
-                                                                <del>{{ number_format($brandProducts[$i]->price) }}
+                                                                <del>{{ number_format($brandProducts[$i]->price ,2) }}
                                                                     EGP</del>
                                                             </h5>
                                                             <h2 style="height: 3rem;max-height: 4rem">
-                                                                {{ number_format($brandProducts[$i]->sale_price) }}</h2>
+                                                                {{ number_format($brandProducts[$i]->sale_price ,2) }}</h2>
                                                         @else
                                                             <h2 style="height: 6rem;max-height: 6rem">
-                                                                {{ number_format($brandProducts[$i]->price) }}</h2>
+                                                                {{ number_format($brandProducts[$i]->price ,2) }}</h2>
                                                         @endif
                                                     </div>
                                                     <p>{{ $brandProducts[$i]->name }}</p>
@@ -106,14 +106,14 @@
                                                     <div style="height: 8rem;max-height: 8rem">
                                                         @if ($brandProducts[$i]->sale_price != null)
                                                             <h5 style="height: 3rem;max-height: 2rem" class="text-danger">
-                                                                <del>{{ number_format($brandProducts[$i]->price) }}
+                                                                <del>{{ number_format($brandProducts[$i]->price ,2) }}
                                                                     EGP</del>
                                                             </h5>
                                                             <h2 style="height: 3rem;max-height: 4rem">
-                                                                {{ number_format($brandProducts[$i]->sale_price) }}</h2>
+                                                                {{ number_format($brandProducts[$i]->sale_price ,2) }}</h2>
                                                         @else
                                                             <h2 style="height: 6rem;max-height: 6rem">
-                                                                {{ number_format($brandProducts[$i]->price) }}</h2>
+                                                                {{ number_format($brandProducts[$i]->price ,2) }}</h2>
                                                         @endif
                                                     </div>
                                                     <p>{{ $brandProducts[$i]->name }}</p>
@@ -144,14 +144,14 @@
                                                     <div style="height: 8rem;max-height: 8rem">
                                                         @if ($brandProducts[$i]->sale_price != null)
                                                             <h5 style="height: 3rem;max-height: 2rem" class="text-danger">
-                                                                <del>{{ number_format($brandProducts[$i]->price) }}
+                                                                <del>{{ number_format($brandProducts[$i]->price ,2) }}
                                                                     EGP</del>
                                                             </h5>
                                                             <h2 style="height: 3rem;max-height: 4rem">
-                                                                {{ number_format($brandProducts[$i]->sale_price) }}</h2>
+                                                                {{ number_format($brandProducts[$i]->sale_price ,2) }}</h2>
                                                         @else
                                                             <h2 style="height: 6rem;max-height: 6rem">
-                                                                {{ number_format($brandProducts[$i]->price) }}</h2>
+                                                                {{ number_format($brandProducts[$i]->price ,2) }}</h2>
                                                         @endif
                                                     </div>
                                                     <p>{{ $brandProducts[$i]->name }}</p>
@@ -198,14 +198,14 @@
                                                     <div style="height: 8rem;max-height: 8rem">
                                                         @if ($catProducts[$i]->sale_price != null)
                                                             <h5 style="height: 3rem;max-height: 2rem" class="text-danger">
-                                                                <del>{{ number_format($catProducts[$i]->price) }}
+                                                                <del>{{ number_format($catProducts[$i]->price ,2) }}
                                                                     EGP</del>
                                                             </h5>
                                                             <h2 style="height: 3rem;max-height: 4rem">
-                                                                {{ number_format($catProducts[$i]->sale_price) }}</h2>
+                                                                {{ number_format($catProducts[$i]->sale_price ,2) }}</h2>
                                                         @else
                                                             <h2 style="height: 6rem;max-height: 6rem">
-                                                                {{ number_format($catProducts[$i]->price) }}</h2>
+                                                                {{ number_format($catProducts[$i]->price ,2) }}</h2>
                                                         @endif
                                                     </div>
                                                     <p>{{ $catProducts[$i]->name }}</p>
@@ -233,14 +233,14 @@
                                                     <div style="height: 8rem;max-height: 8rem">
                                                         @if ($catProducts[$i]->sale_price != null)
                                                             <h5 style="height: 3rem;max-height: 2rem" class="text-danger">
-                                                                <del>{{ number_format($catProducts[$i]->price) }}
+                                                                <del>{{ number_format($catProducts[$i]->price ,2) }}
                                                                     EGP</del>
                                                             </h5>
                                                             <h2 style="height: 3rem;max-height: 4rem">
-                                                                {{ number_format($catProducts[$i]->sale_price) }}</h2>
+                                                                {{ number_format($catProducts[$i]->sale_price ,2) }}</h2>
                                                         @else
                                                             <h2 style="height: 6rem;max-height: 6rem">
-                                                                {{ number_format($catProducts[$i]->price) }}</h2>
+                                                                {{ number_format($catProducts[$i]->price ,2) }}</h2>
                                                         @endif
                                                     </div>
                                                     <p>{{ $catProducts[$i]->name }}</p>
@@ -271,14 +271,14 @@
                                                     <div style="height: 8rem;max-height: 8rem">
                                                         @if ($catProducts[$i]->sale_price != null)
                                                             <h5 style="height: 3rem;max-height: 2rem" class="text-danger">
-                                                                <del>{{ number_format($catProducts[$i]->price) }}
+                                                                <del>{{ number_format($catProducts[$i]->price ,2) }}
                                                                     EGP</del>
                                                             </h5>
                                                             <h2 style="height: 3rem;max-height: 4rem">
-                                                                {{ number_format($catProducts[$i]->sale_price) }}</h2>
+                                                                {{ number_format($catProducts[$i]->sale_price ,2) }}</h2>
                                                         @else
                                                             <h2 style="height: 6rem;max-height: 6rem">
-                                                                {{ number_format($catProducts[$i]->price) }}</h2>
+                                                                {{ number_format($catProducts[$i]->price ,2) }}</h2>
                                                         @endif
                                                     </div>
                                                     <p>{{ $catProducts[$i]->name }}</p>

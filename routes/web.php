@@ -34,19 +34,19 @@ Route::get('/cat/{id}',[CatController::class,'show']);
 
 Route::get('/brand/{id}',[BrandController::class,'show']);
 
-Route::get('/profile',[AuthController::class,'profile']);
-Route::get('/editinfo',[AuthController::class,'editInfoForm']);
-Route::get('/changepassword',[AuthController::class,'changePasswordForm']);
-Route::get('/modifyaddress',[AuthController::class,'modifyAddressForm']);
-Route::get('/showorders',[AuthController::class,'showorders']);
-Route::get('/showreturnrequests',[AuthController::class,'returnOrders']);
+Route::get('/profile',[AuthController::class,'profile'])->middleware('auth');
+Route::get('/editinfo',[AuthController::class,'editInfoForm'])->middleware('auth');
+Route::get('/changepassword',[AuthController::class,'changePasswordForm'])->middleware('auth');
+Route::get('/modifyaddress',[AuthController::class,'modifyAddressForm'])->middleware('auth');
+Route::get('/showorders',[AuthController::class,'showorders'])->middleware('auth');
+Route::get('/showreturnrequests',[AuthController::class,'returnOrders'])->middleware('auth');
 
-Route::post('/editinfo',[AuthController::class,'editInfo']);
-Route::post('/changepassword',[AuthController::class,'changePassword']);
-Route::post('/modifyaddress',[AuthController::class,'modifyAddress']);
+Route::post('/editinfo',[AuthController::class,'editInfo'])->middleware('auth');
+Route::post('/changepassword',[AuthController::class,'changePassword'])->middleware('auth');
+Route::post('/modifyaddress',[AuthController::class,'modifyAddress'])->middleware('auth');
 
 Route::get('/checkout',[OrderController::class,'checkOut'])->middleware('auth');
-Route::get('//showorder/{id}',[OrderController::class,'show'])->middleware('auth');
+Route::get('/showorder/{id}',[OrderController::class,'show'])->middleware('auth');
 Route::get('/confirmorder',[OrderController::class,'confirmOrderView'])->middleware('auth');
 Route::get('/submitorder',[OrderController::class,'confirmOrder'])->middleware('auth');
 Route::get('/orderchangeaddress',[OrderController::class,'changeAddressForm'])->middleware('auth');

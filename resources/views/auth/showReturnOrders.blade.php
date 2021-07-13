@@ -23,7 +23,7 @@
                                     <b>Products</b> {{count($order->products)}}
                                 </div>
                                 <div><b>Customer:</b> {{$order->user->name}}<br>
-                                    <b>Total:</b> {{number_format($order->total_price)}} EGP
+                                    <b>Total:</b> {{number_format($order->total_price,2)}} EGP
                                 </div>
                             </div>
                         </div>

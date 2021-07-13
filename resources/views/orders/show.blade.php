@@ -38,7 +38,7 @@
                                             <p>{{ $product->model }}</p>
                                         </td>
                                         <td class="cart_price">
-                                            <p>{{ number_format($product->pivot->count * $product->price) }} EGP</p>
+                                            <p>{{ number_format($product->pivot->count * $product->price ,2) }} EGP</p>
                                         </td>
                                         <td class="cart_quantity">
                                             <span style="padding: 1rem"
@@ -74,7 +74,7 @@
                     <div class="col-sm-12">
                         <div class="total_area">
                             <ul>
-                                <li>Total <span>{{ number_format($order->total_price) }} EGP</span></li>
+                                <li>Total <span>{{ number_format($order->total_price ,2) }} EGP</span></li>
                                 <li>Status <span>{{ $order->status }} </span></li>
                             </ul>
                         </div>

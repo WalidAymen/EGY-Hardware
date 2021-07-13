@@ -60,7 +60,7 @@
             <h2 class="text-light ">Show <b>Order #{{$order->id}} Details</b></h2>
         </div>
         <div class="w-100 text-center mt-5 mb-4" style="min-height: 25vh">
-            <h3><b>Order total price</b> : {{number_format($order->total_price)}}</h3>
+            <h3><b>Order total price</b> : {{number_format($order->total_price ,2)}}</h3>
             <h3><b>Order status</b> : {{($order->status)}}</h3>
             <h3><b>Customer name</b> : {{$order->user->name}}</h3>
             <h3><b>Customer phone</b> : {{$order->user->phone}}</h3>
@@ -84,9 +84,9 @@
                             <div class="card-body">
                                 <div class="order-id"><b>Product name:</b> {{ $product->name }}</div>
                                 @if ($product->sale_price != null)
-                                    <div id="case2" class="order-status"><b>Price:</b> {{ number_format($product->sale_price) }}</div>
+                                    <div id="case2" class="order-status"><b>Price:</b> {{ number_format($product->sale_price ,2) }}</div>
                                 @else
-                                    <div id="case2" class="order-status"><b>Price:</b> {{ number_format($product->price) }}</div>
+                                    <div id="case2" class="order-status"><b>Price:</b> {{ number_format($product->price ,2) }}</div>
                                 @endif
                                 <div id="case2" class="order-status text-center my-3">
                                     <img class="img-fluid" style="width: 20rem;height: 20rem;"
